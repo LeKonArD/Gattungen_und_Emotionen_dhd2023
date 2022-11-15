@@ -64,7 +64,7 @@ def load_checkpoint_cls(model_name, path):
     
     return model
 
-model = load_checkpoint_cls("deepset/gbert-large","/mnt2/data/sentiment-datasets/"+modelname)
+model = load_checkpoint_cls("deepset/gbert-large","models/"+modelname)
 tokenizer = BertTokenizerFast.from_pretrained("deepset/gbert-large", padding_side="left", padding="max_length")
 
 data = pd.read_csv("enc_input.tsv", sep="\t", index_col=0)
@@ -102,4 +102,4 @@ for index, row in tqdm(data.iterrows(),total=len(data)):
     
     
 data[modelname] = result
-data.to_csv(modelname+"_pred_enc.tsv", sep="\t")
+data.to_csv(modelname+"_prediction.tsv", sep="\t")
