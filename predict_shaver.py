@@ -31,6 +31,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('-modelname', type=str)
+parser.add_argument('-inputfile', type=str)
 args = parser.parse_args()
 modelname = args.modelname
 
@@ -66,7 +67,7 @@ def load_checkpoint_cls(model_name, path):
 model = load_checkpoint_cls("deepset/gbert-large","models/"+modelname)
 tokenizer = BertTokenizerFast.from_pretrained("deepset/gbert-large", padding_side="left", padding="max_length")
 
-data = pd.read_csv("enc_input.tsv", sep="\t", index_col=0)
+data = pd.read_csv(args.inputfile, sep="\t", index_col=0)
 
 def deploy_tokenizer(T):
     
