@@ -11,5 +11,5 @@ Transform your data to the following input format: <br>
 | ------------- |:-------------:| -----:|
 | first text      | ... | ... |
 | second text      | ...      |   ... |
-| third | are neat      |    ... |
+| third text | ...      |    ... |
 
