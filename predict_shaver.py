@@ -1,5 +1,4 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"]="2"
 from transformers import BertTokenizerFast, BertModel, BertConfig, BertForTokenClassification, TextDataset
 from transformers import AdamW, PreTrainedTokenizer, PreTrainedTokenizerFast, BertForSequenceClassification,get_cosine_schedule_with_warmup
 from transformers import get_linear_schedule_with_warmup, Trainer, DataCollatorForTokenClassification, AdamWeightDecay
