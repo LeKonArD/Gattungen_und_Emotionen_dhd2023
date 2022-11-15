@@ -13,3 +13,12 @@ Transform your data to the following input format: <br>
 | second text      | ...      |   ... |
 | third text | ...      |    ... |
 
+You can use as many metadata columns as you might need as long
+as the "text" column is in your table. The table has to be 
+tab-separated.
+
+## Run the model
+
+Change the agrument "-inputfile" in start_prediction.sh.
+Run start_prediction.sh. Each emotion prediction will be saved in
+a separate output table.
