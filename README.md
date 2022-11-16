@@ -4,7 +4,7 @@
 
 Install requirement.txt (python>=3.6) <br>
 Create a folder "models" <br>
-Download the models to your "models" folder <br>
+[Download](https://owncloud.gwdg.de/index.php/s/g2PjWWcknSRlMSd) the models to your "models" folder <br>
 Transform your data to the following input format: <br>
 
 | text        | metadata1           | metadata2  |
