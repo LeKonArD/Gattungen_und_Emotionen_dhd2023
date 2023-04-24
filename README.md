@@ -7,11 +7,11 @@ Create a folder "models" <br>
 [Download](https://owncloud.gwdg.de/index.php/s/g2PjWWcknSRlMSd) the models to your "models" folder <br>
 Transform your data to the following input format: <br>
 
-| text        | metadata1           | metadata2  |
-| ------------- |:-------------:| -----:|
-| first text      | ... | ... |
-| second text      | ...      |   ... |
-| third text | ...      |    ... |
+documents | text          | metadata1           | metadata2  |
+d1        | ------------- |:-------------:| -----:|
+d1        | first line    | ... | ... |
+d1        | second line   | ... | ... |
+d2        | first line    | ... | ... |
 
 You can use as many metadata columns as you might need as long
 as the "text" column is in your table. The table has to be 
