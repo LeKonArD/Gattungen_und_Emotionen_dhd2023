@@ -30,10 +30,10 @@ from tqdm import tqdm
 import argparse
 
 parser = argparse.ArgumentParser(description='Process some integers.')
-parser.add_argument('-modelname', type=str)
+parser.add_argument('-modelfile', type=str)
 parser.add_argument('-inputfile', type=str)
 args = parser.parse_args()
-modelname = args.modelname
+modelfile = args.modelfile
 
 
 def load_checkpoint_cls(model_name, path):
@@ -64,7 +64,7 @@ def load_checkpoint_cls(model_name, path):
     
     return model
 
-model = load_checkpoint_cls("deepset/gbert-large","models/"+modelname)
+model = load_checkpoint_cls("deepset/gbert-large", modelfile)
 tokenizer = BertTokenizerFast.from_pretrained("deepset/gbert-large", padding_side="left", padding="max_length")
 
 data = pd.read_csv(args.inputfile, sep="\t", index_col=0)
@@ -89,17 +89,18 @@ def clean(x):
     x = [int(y) for y in x]
     return x
 
-model.cuda()
+#model.cuda()
 
 result = []
 for index, row in tqdm(data.iterrows(),total=len(data)):
     #x = clean(row["text"])
     x, a = deploy_tokenizer(row["text"])
-    output = model(torch.tensor(np.stack([x,x])).to("cuda"))
+    #output = model(torch.tensor(np.stack([x,x])).to("cuda"))
+    output = model(torch.tensor(np.stack([x,x])))
     label = np.argmax(output["logits"][0].detach().cpu().numpy())
     result.append(label)
     
     
     
-data[modelname] = result
-data.to_csv(modelname+"_prediction.tsv", sep="\t")
+data[modelfile] = result
+data.to_csv(re.sub(".*\/","",modelfile)+"_prediction.tsv", sep="\t")
