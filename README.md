@@ -8,7 +8,7 @@ Create a folder "models" <br>
 Transform your data to the following input format: <br>
 
 documents | text          | metadata1           | metadata2  |
-d1        | ------------- |:-------------:| -----:|
+----------| ------------- |:-------------:| -----:|
 d1        | first line    | ... | ... |
 d1        | second line   | ... | ... |
 d2        | first line    | ... | ... |
